@@ -1,0 +1,63 @@
+<ion-view title="partnerDetail" id="page4">
+  <ion-content padding="true" class="has-header">
+    <div id="partnerDetail-markdown13" style="text-align:center;" class="show-list-numbers-and-dots">
+      <p style="color:#000000;font-size:30px;">EELWAY</p>
+    </div>
+    <div class="spacer" style="width: 300px; height: 16px;"></div>
+    <div id="partnerDetail-container3">
+      <div id="partnerDetail-markdown14" class="show-list-numbers-and-dots">
+        <p style="color:#000000;">Bags</p>
+      </div>
+      <div id="partnerDetail-markdown15" class="show-list-numbers-and-dots">
+        <p style="color:#000000;">{{bagCnt}}</p>
+      </div>
+      <div id="partnerDetail-button-bar2" class="button-bar">
+        <button id="partnerDetail-button19" ng-click="changeBagCnt(-1)" class="button button-positive  button-block">-</button>
+        <button id="partnerDetail-button21" ng-click="changeBagCnt(1)" class="button button-positive  button-block">+</button>
+      </div>
+      <form id="partnerDetail-form5" class="list">
+        <div id="partnerDetail-button-bar3" class="button-bar">
+          <button id="partnerDetail-button25" class="button button-dark  button-block">A -&gt; H</button>
+          <button id="partnerDetail-button27" class="button button-dark  button-block">H -&gt; A</button>
+        </div>
+        <div id="partnerDetail-markdown16" class="show-list-numbers-and-dots">
+          <p style="color:#000000;">From :</p>
+        </div>
+        <label class="item item-select" id="partnerDetail-select1">
+          <span class="input-label">Place</span>
+          <select></select>
+        </label>
+        <label class="item item-input" id="partnerDetail-input2">
+          <span class="input-label">Time</span>
+          <input type="time" placeholder="">
+        </label>
+        <div id="partnerDetail-markdown17" class="show-list-numbers-and-dots">
+          <p style="color:#000000;">To :</p>
+        </div>
+        <label class="item item-select" id="partnerDetail-select3">
+          <span class="input-label">Place</span>
+          <select></select>
+        </label>
+        <label class="item item-input" id="partnerDetail-input3">
+          <span class="input-label">Time</span>
+          <input type="time" placeholder="">
+        </label>
+        <div id="partnerDetail-markdown7" class="show-list-numbers-and-dots">
+          <p style="color:#000000;">Options</p>
+        </div>
+        <div class="item item-body" id="partnerDetail-list-item-container4">
+          <form id="partnerDetail-form6" class="list">
+            <ion-checkbox id="partnerDetail-checkbox2">Check Option</ion-checkbox>
+          </form>
+        </div>
+        <div id="partnerDetail-markdown27" style="text-align:right;" class="show-list-numbers-and-dots">
+          <p style="color:#000000;">30유로</p>
+        </div>
+        <button id="partnerDetail-button13" ui-sref="reservation" class="button button-positive  button-block">Book</button>
+      </form>
+    </div>
+    <form id="partnerDetail-form4" class="list">
+      <div id="partnerDetail-markdown18" class="show-list-numbers-and-dots"></div>
+    </form>
+  </ion-content>
+</ion-view>

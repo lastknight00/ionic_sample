@@ -1,0 +1,29 @@
+<ion-view title="partnerList" id="page3">
+  <ion-content padding="true" class="has-header">
+    <div id="partnerList-button-bar1" class="button-bar">
+      <button id="partnerList-button9" class="button button-positive  button-block">높은가격</button>
+      <button id="partnerList-button10" class="button button-positive  button-block">낮은가격</button>
+      <button id="partnerList-button11" class="button button-positive  button-block">별점순</button>
+    </div>
+    <div class="item item-body" id="partnerList-list-item-container2" ng-repeat="data in datas">
+      <form id="partnerList-form2" class="list">
+        <ion-checkbox id="partnerList-checkbox1" ng-size="10" ui-sref="partnerDetail">{{data.name}}</ion-checkbox>
+        <div id="partnerList-markdown5" style="text-align:right;" class="show-list-numbers-and-dots">
+          <p style="color:#000000;">{{data.price}}//{{data.star}}</p>
+        </div>
+        <div id="partnerList-container1">
+          <div id="partnerList-markdown6" ng-click="toggleOption($event)" style="text-align:center;" class="show-list-numbers-and-dots">
+            <p style="color:#000000;">화살표</p>
+          </div>
+        </div>
+      </form>
+      <div id="partnerList-container2">
+        <div class="item item-body option_list" id="partnerList-list-item-container3" ng-repeat="option in data.options">
+          <div id="partnerList-markdown10" class="show-list-numbers-and-dots">
+            <p style="color:#000000;">{{option.value}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

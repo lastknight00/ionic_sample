@@ -1,0 +1,30 @@
+<ion-view title="reservation" id="page5">
+  <ion-content padding="true" class="has-header">
+    <div id="reservation-markdown12" style="text-align:center;" class="show-list-numbers-and-dots">
+      <p style="color:#000000;">예약내역</p>
+    </div>
+    <div id="reservation-container4">
+      <div id="reservation-markdown19" class="show-list-numbers-and-dots">
+        <p style="color:#000000;">{{select.name}}</p>
+
+        <p style="color:#000000;">From : {{select.from.location}} {{select.from.time}}
+        </p>
+
+        <p style="color:#000000;">To : {{select.to.location}} {{select.to.time}}
+        </p>
+      </div>
+      <ion-list id="reservation-list5">
+        <ion-item class="item-divider" id="reservation-list-item-divider2"> 선택옵션</ion-item>
+        <ion-item id="reservation-list-item3">{{select.option}}</ion-item>
+      </ion-list>
+    </div>
+    <div class="spacer" style="width: 300px; height: 22px;"></div>
+    <div id="reservation-markdown20" style="text-align:center;" class="show-list-numbers-and-dots">
+      <p style="color:#000000;">위 정보로 결제하시겠습니까?</p>
+    </div>
+    <div id="reservation-button-bar4" class="button-bar">
+      <button id="reservation-button17" class="button button-positive  button-block">Cancel</button>
+      <button id="reservation-button20" ui-sref="paymentDetails" class="button button-positive  button-block">Payment Detail</button>
+    </div>
+  </ion-content>
+</ion-view>
