@@ -7,9 +7,22 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives','app.services','datas',])
 
-.config(function($ionicConfigProvider, $sceDelegateProvider){
+.config(function($ionicConfigProvider, $sceDelegateProvider, $httpProvider){
 
-
+  $httpProvider.interceptors.push(function($q, $rootScope, $injector) {
+      return {
+        request: function(request) {
+          //$ionicLoading.show({content: "Loading...", showBackdrop: true, maxWidth: 200, showDelay: 100});
+          //console.log('request',request)
+          return request || $q.when(request);
+        },
+        response: function(response) {
+          //$ionicLoading.hide();
+          //console.log('response',response);
+          return response || $q.when(response);
+        }
+      };
+    });
   $sceDelegateProvider.resourceUrlWhitelist([ 'self','*://www.youtube.com/**', '*://player.vimeo.com/video/**']);
 
 })
@@ -84,6 +97,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
 });
 
 angular.module('app.controllers', []);
+angular.module('app.services', []);
 angular.module('app.routes', []).config(
   function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/page1')
