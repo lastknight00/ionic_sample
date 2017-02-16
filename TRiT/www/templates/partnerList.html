@@ -7,7 +7,7 @@
     </div>
     <div class="item item-body" id="partnerList-list-item-container2" ng-repeat="data in datas">
       <form id="partnerList-form2" class="list">
-        <ion-checkbox id="partnerList-checkbox1" ng-size="10" ui-sref="partnerDetail">{{data.name}}</ion-checkbox>
+        <ion-checkbox id="partnerList-checkbox1" ng-size="10" ui-sref="partnerDetail({param : data})">{{data.name}}</ion-checkbox>
         <div id="partnerList-markdown5" style="text-align:right;" class="show-list-numbers-and-dots">
           <p style="color:#000000;">{{data.price}}//{{data.star}}</p>
         </div>

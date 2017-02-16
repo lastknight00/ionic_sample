@@ -4,6 +4,7 @@ angular.module('app.routes')
   .state('partnerDetail', {
     url: '/partnerDetail',
     templateUrl: 'templates/partnerDetail.html',
-    controller: 'partnerDetailCtrl'
+    controller: 'partnerDetailCtrl',
+    params : {param:null}
   })
 });
