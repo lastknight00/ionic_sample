@@ -1,22 +1,24 @@
 <ion-view title="search" id="page2">
   <ion-content padding="true" class="has-header">
     <div style="margin: 0px; line-height: 250px; background-color: rgb(232, 235, 239); text-align: center;">
-      <img style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;" ng-src="{{imgUrl}}"></img>
+      <img style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;" ng-src="{{imgUrl}}">
     </div>
-    <form id="search-form1" class="list">
-      <label class="item item-input" id="search-search2">
-        <i class="icon ion-search placeholder-icon"></i>
-        <input type="search" placeholder="">
+    <form id="search-form1" class="list" style="margin-top: 10px;">
+      <label class="item item-select">
+        <span class="input-label">Country</span>
+        <select id="selectCountry" ng-change="changeCountry()" ng-model="itemSelectedCountry" ng-options="country.countryInfo.code as country.countryInfo.name for country in countryList"></select>
       </label>
-      <label class="item item-input" id="search-search1">
-        <i class="icon ion-search placeholder-icon"></i>
-        <input type="search" placeholder="">
+      <label class="item item-select">
+        <span class="input-label">City</span>
+        <select id="selectCity"></select>
       </label>
-      <label class="item item-input" id="search-input1">
+      <label style="margin-top: 10px;" class="item item-input" id="search-input1">
         <span class="input-label">출발일자</span>
         <input type="date" placeholder="">
       </label>
-      <a ui-sref="partnerList" id="search-button5" class="button button-positive  button-block">검색</a>
+      <div style="margin: 0px; margin-top: 10px; height: 40px;">
+        <img ui-sref="partnerList" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;" ng-src="images/03.search.png">
+      </div>
     </form>
   </ion-content>
 </ion-view>
