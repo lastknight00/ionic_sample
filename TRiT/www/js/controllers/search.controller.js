@@ -38,11 +38,7 @@ function ($scope, $stateParams, ajaxService) {
   // 국가 리스트 옵션에 설정하는 method
   var SettingCountryList = function(data){
     $scope.countryList = data;
-    var countryList = [];
-
-    $scope.countryList.forEach(function(value){
-      countryList[value.countryInfo.code] = value;
-    });
+    var countryList = COMM_UTIL.convertArrayToMap($scope.countryList, "countryInfo.code");
 
     // default option : South Korea
     $scope.itemSelectedCountry=countryList['kor'];
@@ -64,6 +60,7 @@ function ($scope, $stateParams, ajaxService) {
                   });
   };
 
+  $scope.itemSelectedDate=new Date();
   // 출발 일자도 데이터 바인딩
   $scope.changeDate = function(itemSelectedDate){
     console.log(itemSelectedDate);
