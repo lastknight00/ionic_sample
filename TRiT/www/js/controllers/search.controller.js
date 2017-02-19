@@ -38,7 +38,7 @@ function ($scope, $stateParams, ajaxService) {
   // 국가 리스트 옵션에 설정하는 method
   var SettingCountryList = function(data){
     $scope.countryList = data;
-    var countryList = COMM_UTIL.convertArrayToMap($scope.countryList, "countryInfo.code");
+    var countryList = $scope.countryList.convertToMap("countryInfo.code");
 
     // default option : South Korea
     $scope.itemSelectedCountry=countryList['kor'];

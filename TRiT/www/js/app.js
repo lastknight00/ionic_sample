@@ -25,6 +25,18 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
     });
   $sceDelegateProvider.resourceUrlWhitelist([ 'self','*://www.youtube.com/**', '*://player.vimeo.com/video/**']);
 
+  Array.prototype.convertToMap = function(key) {
+    var retval = [];
+    var keys = key.split(".");
+    this.forEach(function(value) {
+      var cur = value;
+      for(var index = 0; index < keys.length; index++) {
+        cur = cur[keys[index]];
+      }
+      retval[cur] = value;
+    });
+    return retval;
+  }
 })
 
 .run(function($ionicPlatform) {
