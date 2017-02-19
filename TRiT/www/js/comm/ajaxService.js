@@ -1,24 +1,39 @@
 angular.module('app.services')
 .factory('ajaxService', [function($window) {
-  var CONTEXT_URL = 'http://127.0.0.1';
-
+  var CONTEXT_URL = 'http://127.0.0.1:8080';
+  var TEST_URL = 'http://192.168.43.197:8080';
   return {
     post: function(params) {
       $.ajax({
-          url: CONTEXT_URL,
-
+          url : TEST_URL + params.url,
+          //url: CONTEXT_URL + params.url,
+          method:'POST',
           dataType:"json",
+          data : JSON.stringify(params.data),
           success:function (data) {
-              log("The server returned " + data.length + " changes that occurred after " + modifiedSince);
-              callback(data);
+              console.log("The server returned " + data.length + " changes that occurred after " + modifiedSince);
+              params.callback(data);
           },
           error: function(model, response) {
               console.log(response.responseText);
           }
       });
     },
-    get: function(key, defaultValue) {
-      return $window.localStorage[key] || false;
+    get: function(params) {
+      $.ajax({
+          url : TEST_URL + params.url,
+          //url: CONTEXT_URL + params.url,
+          method:'GET',
+          dataType:"json",
+          data : JSON.stringify(params.data),
+          success:function (data) {
+              console.log("The server returned " + data.length + " changes that occurred after " + modifiedSince);
+              params.callback(data);
+          },
+          error: function(model, response) {
+              console.log(response.responseText);
+          }
+      });
     },
     update: function(key, value) {
       $window.localStorage[key] = JSON.stringify(value);
