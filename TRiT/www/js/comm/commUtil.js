@@ -1,4 +1,5 @@
 var COMM_UTIL = {
+  //Deplicated
   convertArrayToMap : function(array, key) {
     var retval = [];
     var keys = key.split(".");
