@@ -1,9 +1,22 @@
 <ion-view title="partnerList" id="page3">
   <ion-content padding="true" class="has-header">
+<!--
     <div id="partnerList-button-bar1" class="button-bar">
       <button id="partnerList-button9" class="button button-positive  button-block">높은가격</button>
       <button id="partnerList-button10" class="button button-positive  button-block">낮은가격</button>
       <button id="partnerList-button11" class="button button-positive  button-block">별점순</button>
+    </div>
+-->
+    <div id="partnerList-button-bar2" style="width:100%; height:auto; margin-top:10px; margin-bottom:10px; display: table;">
+      <div style="width:33%; float:left; display: table-row;" >
+        <img id="partnerList-button-priceHL" style="width:100%" ng-src="images/04.partnerlist_Price H to L.png">
+      </div>
+      <div style="width:33%; float:left; display: table-row;">
+        <img id="partnerList-button-priceLH" style="width:100%" ng-src="images/04.partnerlist_Price L to H.png">
+      </div>
+      <div style="width:33%; float:left; display: table-row;">
+        <img id="partnerList-button-priceRating" style="width:100%" ng-src="images/04.partnerlist_Rating.png">
+      </div>
     </div>
     <div class="item item-body" id="partnerList-list-item-container2" ng-repeat="data in datas">
       <form id="partnerList-form2" class="list">
@@ -12,8 +25,8 @@
           <p style="color:#000000;">{{data.price}}//{{data.star}}</p>
         </div>
         <div id="partnerList-container1">
-          <div id="partnerList-markdown6" ng-click="toggleOption($event)" style="text-align:center;" class="show-list-numbers-and-dots">
-            <p style="color:#000000;">화살표</p>
+          <div id="partnerList-markdown6" style="text-align:center;" class="show-list-numbers-and-dots">
+            <img id="partnerList-img-arrow" style="height:100%" ng-src="images/04.partnerlist_arrow bottom.png" ng-click="toggleOption($event)">
           </div>
         </div>
       </form>

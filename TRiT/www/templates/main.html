@@ -1,8 +1,25 @@
 <ion-view title="main" id="page1">
   <ion-content padding="true" class="has-header">
-    <a ui-sref="search" id="main-button1" style="font-weight:600;" class="button button-positive  button-block">예약</a>
+<!--    <a ui-sref="search" id="main-button1" style="font-weight:600;" class="button button-positive  button-block">예약</a>
     <a ui-sref="partnerList" id="main-button4" style="font-weight:600;" class="button button-positive  button-block">짐 위치 확인</a>
     <a ui-sref="partnerDetail" id="main-button2" style="font-weight:600;" class="button button-positive  button-block">내 예약</a>
     <a ui-sref="reservation" id="main-button3" style="font-weight:600;" class="button button-positive  button-block">내 정보</a>
+  -->
+    <div style="margin: 10px; height: auto; width: 100%;">
+      <div style="width: 50%; float:left" >
+        <img style="display: block; width: auto; height: auto; margin-left: 10px;" ng-src="images/02.main_R.png" ui-sref="search">
+      </div>
+      <div style="width: 50%; float:left">
+        <img style="display: block; width: auto; height: auto; margin-right: 10px;" ng-src="images/02.main_T.png" ui-sref="partnerList">
+      </div>
+    </div>
+    <div style="margin: 10px; margin-top:20px; height: auto; width: 100%;">
+      <div style="width: 50%; float:left" >
+        <img style="display: block; width: auto; height: auto; margin-left: 10px;" ng-src="images/02.main_I.png" ui-sref="partnerDetail">
+      </div>
+      <div style="width: 50%; float:left">
+        <img style="display: block; width: auto; height: auto; margin-right: 10px;" ng-src="images/02.main_M.png" ui-sref="reservation">
+      </div>
+    </div>
   </ion-content>
 </ion-view>
