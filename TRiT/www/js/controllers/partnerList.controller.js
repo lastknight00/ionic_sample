@@ -1,12 +1,10 @@
 angular.module('app.controllers')
-.controller('partnerListCtrl', ['$scope', '$stateParams', 'DatasService','$state',
-function ($scope, $stateParams,DatasService,$state) {
+.controller('partnerListCtrl', ['$scope', '$stateParams', '$state', 'ajaxService',
+function ($scope, $stateParams, $state, ajaxService) {
     // 화살표 밑 옵션 리스트 숨기기
     $(document).ready(function(){
         $(".option_list").parent().hide();
     });
-
-    $scope.datas = DatasService.datas;
 
     // 화살표 클릭 이벤트
     $scope.toggleOption = function($event) {
@@ -21,7 +19,12 @@ function ($scope, $stateParams,DatasService,$state) {
     // SearchCtrl 에서 넘어온 데이터로 서버 검색 요청 (서버)
     var reqData = $state.params.param;
     console.log(reqData);
-
+    ajaxService.get({url:'/api/selectPartnerList',
+                    data:{},
+                    callback:function(response){
+                        console.log(response)
+                    }
+                  });
 
 
 

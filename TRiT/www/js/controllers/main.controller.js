@@ -1,6 +1,6 @@
 angular.module('app.controllers')
-.controller('mainCtrl', ['$scope', '$stateParams', 'DatasService', '$localstorage', '$sessionstorage', 'ajaxService',
-function ($scope, $stateParams,DatasService, $localstorage, $sessionstorage, ajaxService) {
+.controller('mainCtrl', ['$scope', '$stateParams', '$localstorage', '$sessionstorage', 'ajaxService',
+function ($scope, $stateParams,$localstorage, $sessionstorage, ajaxService) {
     $localstorage.set('a','ab');
     $localstorage.set('b','bc');
     $localstorage.set('c','cd');
@@ -10,5 +10,4 @@ function ($scope, $stateParams,DatasService, $localstorage, $sessionstorage, aja
     $sessionstorage.set('b','bc');
     $sessionstorage.set('c','cd');
     $sessionstorage.set('d','de');
-    ajaxService.post({url:'/getCountryInfo',callback:function(data){console.log(data);}});
 }])

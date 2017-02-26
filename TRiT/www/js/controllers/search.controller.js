@@ -1,52 +1,6 @@
 angular.module('app.controllers')
 .controller('searchCtrl', ['$scope', '$stateParams', 'ajaxService', '$state',
 function ($scope, $stateParams, ajaxService, $state) {
-
-  // **TEST DATA**
-  var testData_countrylist =  [
-      {
-          "countryInfo" : {
-               "name" : "Japan",
-               "code" :  "JPN"
-           }
-        ,"picture" : [
-               { "url":"http://cfile8.uf.tistory.com/image/255DC34B54C700871C698E",
-                 "contents" :"XXXXXXXXXXXXXXXXx", "format":"bmp", "wsize":"300", "hsize":"300"},
-        ]
-      }
-      ,{
-          "countryInfo" : {
-               "name" : "South Korea",
-               "code" :  "KOR"
-           }
-        ,"picture" : [
-               { "url":"http://cfile24.uf.tistory.com/original/1410BD344EF1FEAD292FC3",
-                 "contents" :"XXXXXXXXXXXXXXXXx", "format":"bmp", "wsize":"300", "hsize":"300"},
-        ]
-    }
-  ];
-
-  var testData_citylist = [
-      {
-                              "countryInfo" : {
-                                   "name" : "South Korea"
-                                   ,"code" :  "KOR"
-                               }
-                             ,"IATAInfo" : [
-                                    { "name" :  "Incheon International", "IATA":"ICN", "city" : "Seoul", "country" : "south korea"}
-                                   ,{ "name" :  "Gimpo International", "IATA":"GMP", "city" : "Seoul2", "country" : "south korea"}
-                                   ,{ "name" :  "Gimhae International", "IATA":"PUS", "city" : "Busan", "country" : "south korea"}
-                                   ,{ "name" :  "Jeju International", "IATA":"CJU", "city" : "Jeju city", "country" : "south korea"}
-                            ]
-                            ,"picture" : [
-                                   { "contents" :"XXXXXXXXXXXXXXXXx", "format":"bmp", "wsize":"300", "hsize":"300"}
-                                  ,{ "contents" :"XXXXXXXXXXXXXXXXx", "format":"bmp", "wsize":"300", "hsize":"300"}
-                                  ,{ "contents" :"XXXXXXXXXXXXXXXXx", "format":"bmp", "wsize":"300", "hsize":"300"}
-                                  ,{ "contents" :"XXXXXXXXXXXXXXXXx", "format":"bmp", "wsize":"300", "hsize":"300"}
-                           ]
-                        }
-      ];
-
   // defaul 국가
   var defaultCountry = 'KOR';
 
@@ -78,10 +32,6 @@ function ($scope, $stateParams, ajaxService, $state) {
     console.log(itemSelectedCountry.countryInfo);
     $scope.imgUrl = itemSelectedCountry.picture[0].url;
 
-    // **TEST용 -> 서버 연결 시 삭제
-    $scope.cityList = testData_citylist[0].IATAInfo;
-    $scope.itemSelectedCity = testData_citylist[0].IATAInfo[0];
-
     ajaxService.get({url:'/api/selectCountryInfo',
                     data:{IATA:true, country: itemSelectedCountry.countryInfo.code, picture:true},
                     callback:function(response){
@@ -101,8 +51,6 @@ function ($scope, $stateParams, ajaxService, $state) {
 
   // 검색 요청 (데이터를 다음 화면으로 전달)
   $scope.clickSearch = function(){
-    console.log('dddddd');
-
     var reqData = {
       "reqCountry": $scope.itemSelectedCity,
       "reqCity":$scope.itemSelectedCity,
@@ -113,6 +61,14 @@ function ($scope, $stateParams, ajaxService, $state) {
   }
 
   // **TEST용 -> 서버 연결 시 삭제
-  SettingCountryList(testData_countrylist);
+  //SettingCountryList(testData_countrylist);
+
+  ajaxService.get({url:'/api/selectCountryInfo',
+                  data:{IATA:false, picture:true},
+                  callback:function(response){
+                      //$scope.cityList = response[0].IATAInfo;
+                      SettingCountryList(response);
+                  }
+                });
 
 }]);

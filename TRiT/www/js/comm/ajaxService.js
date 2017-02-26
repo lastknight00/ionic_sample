@@ -1,37 +1,43 @@
 angular.module('app.services')
-.factory('ajaxService', [function($window) {
+.factory('ajaxService', ['$localstorage', '$sessionstorage', function($localstorage, $sessionstorage, $window) {
   var CONTEXT_URL = 'http://127.0.0.1:8080';
-  var TEST_URL = 'http://192.168.43.197:8080';
+  var preProcessResponse = function(response) {
+    $localstorage.set('tokenId',response.tokenId);
+    return response;
+  }
+  var preProcessRequest = function(request) {
+    request.setRequestHeader('content-type', 'application/json');
+    request.setRequestHeader('lang_code', $localstorage.get('lang_code'));
+    request.setRequestHeader('tokenId', $localstorage.get('tokenId'));
+  }
   return {
     post: function(params) {
       $.ajax({
-          url : TEST_URL + params.url,
-          //url: CONTEXT_URL + params.url,
+          url : CONTEXT_URL + params.url,
           method:'POST',
           dataType:"json",
-          data : JSON.stringify(params.data),
+          data : params.data,
           success:function (data) {
-              console.log("The server returned " + data.length + " changes that occurred after " + modifiedSince);
-              params.callback(data);
-          },
+            preProcessResponse(data);
+            params.callback(data.resultData.data);
+          }, beforeSend: preProcessRequest,
           error: function(model, response) {
-              console.log(response.responseText);
+              console.error(response.responseText);
           }
       });
     },
     get: function(params) {
       $.ajax({
-          url : TEST_URL + params.url,
-          //url: CONTEXT_URL + params.url,
+          url : CONTEXT_URL + params.url,
           method:'GET',
           dataType:"json",
-          data : JSON.stringify(params.data),
+          data : params.data,
           success:function (data) {
-              console.log("The server returned " + data.length + " changes that occurred after " + modifiedSince);
-              params.callback(data);
-          },
+            preProcessResponse(data);
+            params.callback(data.resultData.data);
+          }, beforeSend: preProcessRequest,
           error: function(model, response) {
-              console.log(response.responseText);
+              console.error(response.responseText);
           }
       });
     },
