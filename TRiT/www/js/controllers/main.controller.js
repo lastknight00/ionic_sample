@@ -10,5 +10,4 @@ function ($scope, $stateParams,DatasService, $localstorage, $sessionstorage, aja
     $sessionstorage.set('b','bc');
     $sessionstorage.set('c','cd');
     $sessionstorage.set('d','de');
-    ajaxService.post({url:'/getCountryInfo',callback:function(data){console.log(data);}});
 }])
