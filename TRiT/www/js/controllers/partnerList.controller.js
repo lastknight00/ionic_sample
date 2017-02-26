@@ -22,6 +22,7 @@ function ($scope, $stateParams, $state, ajaxService) {
     ajaxService.get({url:'/api/selectPartnerList',
                     data:{},
                     callback:function(response){
+                        $scope.datas = response;
                         console.log(response)
                     }
                   });
