@@ -4,6 +4,9 @@ angular.module('app.routes')
   .state('partnerList', {
     url: '/page3',
     templateUrl: 'templates/partnerList.html',
-    controller: 'partnerListCtrl'
+    controller: 'partnerListCtrl',
+    params : {
+      param : null
+    }
   })
 });
