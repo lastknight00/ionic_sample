@@ -1,6 +1,6 @@
 angular.module('app.controllers')
-.controller('mainCtrl', ['$scope', '$stateParams', 'DatasService', '$localstorage', '$sessionstorage', 'ajaxService',
-function ($scope, $stateParams,DatasService, $localstorage, $sessionstorage, ajaxService) {
+.controller('mainCtrl', ['$scope', '$stateParams', '$localstorage', '$sessionstorage', 'ajaxService',
+function ($scope, $stateParams,$localstorage, $sessionstorage, ajaxService) {
     $localstorage.set('a','ab');
     $localstorage.set('b','bc');
     $localstorage.set('c','cd');

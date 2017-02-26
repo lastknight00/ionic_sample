@@ -1,12 +1,10 @@
 angular.module('app.controllers')
-.controller('partnerListCtrl', ['$scope', '$stateParams', 'DatasService','$state', 'ajaxService',
-function ($scope, $stateParams,DatasService,$state, ajaxService) {
+.controller('partnerListCtrl', ['$scope', '$stateParams', '$state', 'ajaxService',
+function ($scope, $stateParams, $state, ajaxService) {
     // 화살표 밑 옵션 리스트 숨기기
     $(document).ready(function(){
         $(".option_list").parent().hide();
     });
-
-    $scope.datas = DatasService.datas;
 
     // 화살표 클릭 이벤트
     $scope.toggleOption = function($event) {

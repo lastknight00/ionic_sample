@@ -1,6 +1,16 @@
 angular.module('app.services')
-.factory('ajaxService', [function($window) {
+.factory('ajaxService', ['$localstorage', '$sessionstorage', function($window, $localstorage, $sessionstorage) {
   var CONTEXT_URL = 'http://127.0.0.1:8080';
+  var preProcessResponse = function(response) {
+    console.log(response.tokenId);
+    $localstorage.set('tokenId',response.tokenId);
+    return response;
+  }
+  var preProcessRequest = function(request) {
+    request.setRequestHeader('content-type', 'application/json');
+    request.setRequestHeader('lang_code', $localstorage.get('lang_code'));
+    request.setRequestHeader('tokenId', $localstorage.get('tokenId'));
+  }
   return {
     post: function(params) {
       $.ajax({
@@ -9,8 +19,9 @@ angular.module('app.services')
           dataType:"json",
           data : params.data,
           success:function (data) {
-              params.callback(data.resultData.data);
-          },
+            preProcessResponse(data);
+            params.callback(data.resultData.data);
+          }, beforeSend: preProcessRequest,
           error: function(model, response) {
               console.log(response.responseText);
           }
@@ -23,8 +34,9 @@ angular.module('app.services')
           dataType:"json",
           data : params.data,
           success:function (data) {
-              params.callback(data.resultData.data);
-          },
+            preProcessResponse(data);
+            params.callback(data.resultData.data);
+          }, beforeSend: preProcessRequest,
           error: function(model, response) {
               console.log(response.responseText);
           }
