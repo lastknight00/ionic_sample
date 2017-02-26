@@ -39,7 +39,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
   }
 })
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $localstorage) {
   $ionicPlatform.ready(function() {
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -49,7 +49,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
-    //$localstorage.set('lang_code', 'EN');
+    $localstorage.set('lang_code', 'EN');
   });
 })
 

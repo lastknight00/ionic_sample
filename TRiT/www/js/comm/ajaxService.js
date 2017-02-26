@@ -1,12 +1,13 @@
 angular.module('app.services')
-.factory('ajaxService', ['$localstorage', '$sessionstorage', function($window, $localstorage, $sessionstorage) {
+.factory('ajaxService', ['$localstorage', '$sessionstorage', function($localstorage, $sessionstorage, $window) {
   var CONTEXT_URL = 'http://127.0.0.1:8080';
   var preProcessResponse = function(response) {
-    console.log(response.tokenId);
     $localstorage.set('tokenId',response.tokenId);
     return response;
   }
   var preProcessRequest = function(request) {
+    console.log($localstorage)
+    console.log($sessionstorage)
     request.setRequestHeader('content-type', 'application/json');
     request.setRequestHeader('lang_code', $localstorage.get('lang_code'));
     request.setRequestHeader('tokenId', $localstorage.get('tokenId'));
