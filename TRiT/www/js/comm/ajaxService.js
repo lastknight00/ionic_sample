@@ -6,8 +6,6 @@ angular.module('app.services')
     return response;
   }
   var preProcessRequest = function(request) {
-    console.log($localstorage)
-    console.log($sessionstorage)
     request.setRequestHeader('content-type', 'application/json');
     request.setRequestHeader('lang_code', $localstorage.get('lang_code'));
     request.setRequestHeader('tokenId', $localstorage.get('tokenId'));
@@ -24,7 +22,7 @@ angular.module('app.services')
             params.callback(data.resultData.data);
           }, beforeSend: preProcessRequest,
           error: function(model, response) {
-              console.log(response.responseText);
+              console.error(response.responseText);
           }
       });
     },
@@ -39,7 +37,7 @@ angular.module('app.services')
             params.callback(data.resultData.data);
           }, beforeSend: preProcessRequest,
           error: function(model, response) {
-              console.log(response.responseText);
+              console.error(response.responseText);
           }
       });
     },
