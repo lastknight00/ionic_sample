@@ -24,7 +24,8 @@ function ($scope, $stateParams, $state, ajaxService) {
       }
     });
   };
-    // 화살표 클릭 이벤트
+
+  // 화살표 클릭 이벤트
   $scope.toggleOption = function($event,data) {
     var target = $($event.target).closest('form').next();
 
@@ -64,6 +65,9 @@ function ($scope, $stateParams, $state, ajaxService) {
   // SearchCtrl 에서 넘어온 데이터로 서버 검색 요청 (서버)
   searchParam.IATA = $state.params.param.reqCity.IATA;
   $scope.searchPartnerList('bagBasicPrice', false);
+
   // 정렬 버튼 이벤트 (Sorting)
+
   // 파트너 체크박스 클릭 이벤트 (선택한 데이터 partnerDetailCtrl로 전달)
+  
 }]);
