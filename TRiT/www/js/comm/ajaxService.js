@@ -6,9 +6,9 @@ angular.module('app.services')
     return response;
   }
   var preProcessRequest = function(request) {
-    request.setRequestHeader('content-type', 'application/json');
-    request.setRequestHeader('lang_code', $localstorage.get('lang_code'));
-    request.setRequestHeader('tokenId', $localstorage.get('tokenId'));
+    //request.setRequestHeader('content-type', 'application/json');
+    //request.setRequestHeader('lang_code', $localstorage.get('lang_code'));
+    //request.setRequestHeader('tokenId', $localstorage.get('tokenId'));
   }
   return {
     post: function(params) {
@@ -29,6 +29,7 @@ angular.module('app.services')
     get: function(params) {
       $.ajax({
           url : CONTEXT_URL + params.url,
+          cache : false,
           method:'GET',
           dataType:"json",
           data : params.data,

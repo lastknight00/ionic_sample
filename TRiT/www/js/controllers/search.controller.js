@@ -2,11 +2,11 @@ angular.module('app.controllers')
 .controller('searchCtrl', ['$scope', '$stateParams', 'ajaxService', '$state',
 function ($scope, $stateParams, ajaxService, $state) {
   // defaul 국가
-  var defaultCountry = 'KOR';
+  var defaultCountry = 'kor';
 
   // 국가 리스트 옵션에 설정하는 method
   var SettingCountryList = function(data){
-    $scope.countryList = data;
+    $scope.countryList = data.countryInfoList;
     var countryList = $scope.countryList.convertToMap("countryInfo.code");
 
     // default option : South Korea
@@ -29,10 +29,9 @@ function ($scope, $stateParams, ajaxService, $state) {
 
   // 국가 리스트 선택하면 도시 리스트 불러오기 (서버)
   $scope.changeCountry = function(itemSelectedCountry){
-    console.log(itemSelectedCountry.countryInfo);
     $scope.imgUrl = itemSelectedCountry.picture[0].url;
 
-    ajaxService.get({url:'/api/selectCountryInfo',
+    ajaxService.get({url:'/api/selectcountryinfo',
                     data:{IATA:true, country: itemSelectedCountry.countryInfo.code, picture:true},
                     callback:function(response){
                         //$scope.cityList = response[0].IATAInfo;
@@ -63,7 +62,7 @@ function ($scope, $stateParams, ajaxService, $state) {
   // **TEST용 -> 서버 연결 시 삭제
   //SettingCountryList(testData_countrylist);
 
-  ajaxService.get({url:'/api/selectCountryInfo',
+  ajaxService.get({url:'/api/selectcountryinfo',
                   data:{IATA:false, picture:true},
                   callback:function(response){
                       //$scope.cityList = response[0].IATAInfo;
