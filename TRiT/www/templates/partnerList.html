@@ -9,13 +9,13 @@
 -->
     <div id="partnerList-button-bar2" style="width:100%; height:auto; margin-top:10px; margin-bottom:10px; display: table;">
       <div style="width:33%; float:left; display: table-row;" >
-        <img id="partnerList-button-priceHL" style="width:100%" ng-src="images/04.partnerlist_Price H to L.png">
+        <img id="partnerList-button-priceHL" style="width:100%" ng-src="images/04.partnerlist_Price H to L.png" ng-click="searchPartnerList('bagBasicPrice',false)">
       </div>
       <div style="width:33%; float:left; display: table-row;">
-        <img id="partnerList-button-priceLH" style="width:100%" ng-src="images/04.partnerlist_Price L to H.png">
+        <img id="partnerList-button-priceLH" style="width:100%" ng-src="images/04.partnerlist_Price L to H.png" ng-click="searchPartnerList('bagBasicPrice',true)">
       </div>
       <div style="width:33%; float:left; display: table-row;">
-        <img id="partnerList-button-priceRating" style="width:100%" ng-src="images/04.partnerlist_Rating.png">
+        <img id="partnerList-button-priceRating" style="width:100%" ng-src="images/04.partnerlist_Rating.png" ng-click="searchPartnerList('grade',false)">
       </div>
     </div>
     <div class="item item-body" id="partnerList-list-item-container2" ng-repeat="data in datas">
@@ -26,17 +26,18 @@
         </div>
         <div id="partnerList-container1">
           <div id="partnerList-markdown6" style="text-align:center;" class="show-list-numbers-and-dots">
-            <img id="partnerList-img-arrow" style="height:100%" ng-src="images/04.partnerlist_arrow bottom.png" ng-click="toggleOption($event)">
+            <img id="partnerList-img-arrow" style="height:100%" ng-src="images/04.partnerlist_arrow bottom.png" ng-click="toggleOption($event,data)">
           </div>
         </div>
       </form>
-      <div id="partnerList-container2">
+      <div id="partnerList-container2"  style="display:none">
         <div class="item item-body option_list" id="partnerList-list-item-container3" ng-repeat="option in data.options">
           <div id="partnerList-markdown10" class="show-list-numbers-and-dots">
-            <p style="color:#000000;">{{option.value}}</p>
+            <p style="color:#000000;">{{option.detailDescription}}11</p>
           </div>
         </div>
       </div>
     </div>
+   <ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="10%"></ion-infinite-scroll>
   </ion-content>
 </ion-view>

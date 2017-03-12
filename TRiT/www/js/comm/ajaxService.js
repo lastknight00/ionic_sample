@@ -1,6 +1,7 @@
 angular.module('app.services')
 .factory('ajaxService', ['$localstorage', '$sessionstorage', function($localstorage, $sessionstorage, $window) {
   var CONTEXT_URL = 'http://127.0.0.1:8080';
+  //var CONTEXT_URL = 'https://4dnru0sthe.execute-api.us-east-1.amazonaws.com/empty';
   var preProcessResponse = function(response) {
     $localstorage.set('tokenId',response.tokenId);
     return response;
