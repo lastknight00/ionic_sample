@@ -61,7 +61,7 @@ function ($scope, $stateParams, $state, ajaxService) {
         $scope.$apply();
         $scope.noMoreItemsAvailable = searchParam.pageNum * searchParam.pageSize >= response.partnerListCnt;
 
-        console.log(searchParam.pageNum * searchParam.pageSize)
+        console.log(searchParam.pageNum * searchParam.pageSize);
         console.log(response);
       }
     });
