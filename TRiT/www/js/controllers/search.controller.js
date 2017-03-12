@@ -29,7 +29,6 @@ function ($scope, $stateParams, ajaxService, $state) {
 
   // 국가 리스트 선택하면 도시 리스트 불러오기 (서버)
   $scope.changeCountry = function(itemSelectedCountry){
-    console.log(itemSelectedCountry.countryInfo);
     $scope.imgUrl = itemSelectedCountry.picture[0].url;
 
     ajaxService.get({url:'/api/selectcountryinfo',

@@ -36,7 +36,6 @@ angular.module('app.services')
           data : params.data,
           success:function (data) {
             preProcessResponse(data);
-            console.log(data)
             params.callback(data.resultData.data);
           }, beforeSend: preProcessRequest,
           error: function(model, response) {
