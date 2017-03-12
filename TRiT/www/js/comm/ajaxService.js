@@ -1,14 +1,14 @@
 angular.module('app.services')
 .factory('ajaxService', ['$localstorage', '$sessionstorage', function($localstorage, $sessionstorage, $window) {
-  var CONTEXT_URL = 'http://127.0.0.1:8080';
+  var CONTEXT_URL = 'https://4dnru0sthe.execute-api.us-east-1.amazonaws.com/empty';
   var preProcessResponse = function(response) {
     $localstorage.set('tokenId',response.tokenId);
     return response;
   }
   var preProcessRequest = function(request) {
-    request.setRequestHeader('content-type', 'application/json');
-    request.setRequestHeader('lang_code', $localstorage.get('lang_code'));
-    request.setRequestHeader('tokenId', $localstorage.get('tokenId'));
+    //request.setRequestHeader('content-type', 'application/json');
+    //request.setRequestHeader('lang_code', $localstorage.get('lang_code'));
+    //request.setRequestHeader('tokenId', $localstorage.get('tokenId'));
   }
   return {
     post: function(params) {
@@ -29,6 +29,7 @@ angular.module('app.services')
     get: function(params) {
       $.ajax({
           url : CONTEXT_URL + params.url,
+          cache : false,
           method:'GET',
           dataType:"json",
           data : params.data,
