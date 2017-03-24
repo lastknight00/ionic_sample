@@ -45,15 +45,15 @@
         <div id="partnerDetail-markdown7" class="show-list-numbers-and-dots">
           <p style="color:#000000;">Options</p>
         </div>
-        <div class="item item-body" id="partnerDetail-list-item-container4">
+        <div class="item item-body" id="partnerDetail-list-item-container4" ng-repeat="option in options">
           <form id="partnerDetail-form6" class="list">
-            <ion-checkbox id="partnerDetail-checkbox2">Check Option</ion-checkbox>
+            <ion-checkbox id="partnerDetail-checkbox2">{{option.detailNm}}</ion-checkbox>
           </form>
         </div>
         <div id="partnerDetail-markdown27" style="text-align:right;" class="show-list-numbers-and-dots">
-          <p style="color:#000000;">{{price}}</p>
+          <p style="color:#000000;">$ {{price}}</p>
         </div>
-        <button id="partnerDetail-button13" ui-sref="reservation" class="button button-positive  button-block">Book</button>
+        <button id="partnerDetail-button13" class="button button-positive button-block" ng-click="clickBook()">Book</button>
       </form>
     </div>
     <form id="partnerDetail-form4" class="list">

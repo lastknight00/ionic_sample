@@ -37,7 +37,9 @@ function ($scope, $stateParams, $state, ajaxService) {
           partnerId : data.partnerId
         },
         callback:function(response){
-          data.options = response.detail;
+          //기존에 열려있는 options에 다 적용되는 듯. TODO: 해결 필요
+          $scope.options = response.detail;
+
           $scope.$apply();
           $scope.noMoreItemsAvailable = searchParam.pageNum * searchParam.pageSize >= response.partnerListCnt;
         }
@@ -74,5 +76,5 @@ function ($scope, $stateParams, $state, ajaxService) {
   // 정렬 버튼 이벤트 (Sorting)
 
   // 파트너 체크박스 클릭 이벤트 (선택한 데이터 partnerDetailCtrl로 전달)
-  
+
 }]);
