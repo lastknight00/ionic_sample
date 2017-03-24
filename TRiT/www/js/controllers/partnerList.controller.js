@@ -8,25 +8,27 @@ function ($scope, $stateParams, $state, ajaxService) {
     asc : false,
     IATA : ''
   };
-  $scope.noMoreItemsAvailable = true;
+  $scope.noMoreItemsAvailable = false;
 
   $scope.loadMore = function() {
-    console.log($scope.noMoreItemsAvailable)
     searchParam.pageNum++;
     ajaxService.get({
       url : '/api/selectpartnerlist',
       data : searchParam,
       callback:function(response){
-        $scope.datas = $scope.datas.concat(response);
+        $scope.datas = $scope.datas.concat(response.partnerList);
         $scope.$apply();
         $scope.$broadcast('scroll.infiniteScrollComplete');
-        console.log(searchParam.pageNum * searchParam.pageSize)
-        console.log(response.partnerListCnt)
+        $scope.noMoreItemsAvailable = searchParam.pageNum * searchParam.pageSize >= response.partnerListCnt;
+        console.log($scope.noMoreItemsAvailable)
+        console.log($scope.datas)
+
+
       }
     });
-  };
 
-  // 화살표 클릭 이벤트
+  };$("#partnerList-list-item-container2").css("height",'10000px')
+    // 화살표 클릭 이벤트
   $scope.toggleOption = function($event,data) {
     var target = $($event.target).closest('form').next();
 
@@ -41,7 +43,6 @@ function ($scope, $stateParams, $state, ajaxService) {
           $scope.options = response.detail;
 
           $scope.$apply();
-          $scope.noMoreItemsAvailable = searchParam.pageNum * searchParam.pageSize >= response.partnerListCnt;
         }
       });
       target.attr('isLoaded', true);
@@ -63,9 +64,6 @@ function ($scope, $stateParams, $state, ajaxService) {
         $scope.datas = response.partnerList;
         $scope.$apply();
         $scope.noMoreItemsAvailable = searchParam.pageNum * searchParam.pageSize >= response.partnerListCnt;
-
-        console.log(searchParam.pageNum * searchParam.pageSize)
-        console.log(response)
       }
     });
   }
