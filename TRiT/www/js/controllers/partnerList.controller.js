@@ -26,6 +26,7 @@ function ($scope, $stateParams, $state, ajaxService) {
 
       }
     });
+
   };$("#partnerList-list-item-container2").css("height",'10000px')
     // 화살표 클릭 이벤트
   $scope.toggleOption = function($event,data) {
@@ -38,7 +39,9 @@ function ($scope, $stateParams, $state, ajaxService) {
           partnerId : data.partnerId
         },
         callback:function(response){
-          data.options = response.detail;
+          //기존에 열려있는 options에 다 적용되는 듯. TODO: 해결 필요
+          $scope.options = response.detail;
+
           $scope.$apply();
         }
       });
@@ -67,6 +70,9 @@ function ($scope, $stateParams, $state, ajaxService) {
   // SearchCtrl 에서 넘어온 데이터로 서버 검색 요청 (서버)
   //searchParam.IATA = $state.params.param.reqCity.IATA;
   $scope.searchPartnerList('bagBasicPrice', false);
+
   // 정렬 버튼 이벤트 (Sorting)
+
   // 파트너 체크박스 클릭 이벤트 (선택한 데이터 partnerDetailCtrl로 전달)
+
 }]);

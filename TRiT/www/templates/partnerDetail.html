@@ -23,37 +23,37 @@
         <div id="partnerDetail-markdown16" class="show-list-numbers-and-dots">
           <p style="color:#000000;">From :</p>
         </div>
-        <label class="item item-select" id="partnerDetail-select1">
+        <label class="item item-input" id="partnerDetail-select1">
           <span class="input-label">Place</span>
-          <select></select>
+          <input type="text" placeholder="" ng-model="itemSelectedDepPlace">
         </label>
         <label class="item item-input" id="partnerDetail-input2">
           <span class="input-label">Time</span>
-          <input type="time" placeholder="">
+          <input type="time" placeholder="" ng-model="itemSelectedDepTime">
         </label>
         <div id="partnerDetail-markdown17" class="show-list-numbers-and-dots">
           <p style="color:#000000;">To :</p>
         </div>
-        <label class="item item-select" id="partnerDetail-select3">
+        <label class="item item-input" id="partnerDetail-select3">
           <span class="input-label">Place</span>
-          <select></select>
+          <input type="text" placeholder="" ng-model="itemSelectedArrPlace">
         </label>
         <label class="item item-input" id="partnerDetail-input3">
           <span class="input-label">Time</span>
-          <input type="time" placeholder="">
+          <input type="time" placeholder="" ng-model="itemSelectedArrTime">
         </label>
         <div id="partnerDetail-markdown7" class="show-list-numbers-and-dots">
           <p style="color:#000000;">Options</p>
         </div>
-        <div class="item item-body" id="partnerDetail-list-item-container4">
+        <div class="item item-body" id="partnerDetail-list-item-container4" ng-repeat="option in options">
           <form id="partnerDetail-form6" class="list">
-            <ion-checkbox id="partnerDetail-checkbox2">Check Option</ion-checkbox>
+            <ion-checkbox id="partnerDetail-checkbox2">{{option.detailNm}}</ion-checkbox>
           </form>
         </div>
         <div id="partnerDetail-markdown27" style="text-align:right;" class="show-list-numbers-and-dots">
-          <p style="color:#000000;">30유로</p>
+          <p style="color:#000000;">$ {{price}}</p>
         </div>
-        <button id="partnerDetail-button13" ui-sref="reservation" class="button button-positive  button-block">Book</button>
+        <button id="partnerDetail-button13" class="button button-positive button-block" ng-click="clickBook()">Book</button>
       </form>
     </div>
     <form id="partnerDetail-form4" class="list">
