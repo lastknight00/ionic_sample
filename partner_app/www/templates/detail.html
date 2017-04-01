@@ -1,0 +1,50 @@
+<ion-view title="Detail1" id="page4">
+  <ion-content padding="true" class="has-header">
+    <div class="list card" id="detail1-card21">
+      <div class="item item-body" id="detail1-list-item-container6">
+        <form id="detail1-form1" class="list">
+          <div id="detail1-textarea1">
+            <span>{{label}} Time</span>
+            <span style="float:right">{{time | date : 'hh : mm'}}</span>
+          </div>
+          <div id="detail1-textarea2">
+            <span>{{label}} Location</span>
+            <span style="float:right">{{location}}</span>
+          </div>
+          <div class="spacer" style="width: 268px; height: 17px;"></div>
+        </form>
+        <div class="list card" id="detail1-card24">
+          <div class="item item-body" id="detail1-list-item-container11">
+            <div id="detail1-markdown14" class="show-list-numbers-and-dots">
+              <p style="margin-top:0px;color:#000000;">Customer Infomation</p>
+            </div>
+            <form id="detail1-form3" class="list">
+              <div>
+                <span>Name</span>
+                <span style="float:right">{{name}}</span>
+              </div>
+              <div>
+                <span>Sex</span>
+                <span style="float:right">{{sex}}</span>
+              </div>
+              <div>
+                <span>Phone</span>
+                <span style="float:right">{{phone}}</span>
+              </div>
+            </form>
+          </div>
+        </div>
+        <button id="detail1-button2" class="button button-positive  button-block">Read QR Code</button>
+        <form id="detail1-form4" class="list">
+          <label class="item item-input" id="detail1-input2">
+            <span class="input-label">Input</span>
+            <input type="text" placeholder="">
+          </label>
+        </form>
+        <button id="detail1-button1" class="button button-positive  button-block">Check Auth No.</button>
+        <button id="detail1-button3" class="button button-positive  button-block">Finish Pickup</button>
+        <button id="detail1-button4" class="button button-positive  button-block">Store Garage</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

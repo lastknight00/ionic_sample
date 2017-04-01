@@ -1,0 +1,16 @@
+<ion-view title="Time List" id="page2">
+  <ion-content padding="true" class="has-header">
+    <ion-list id="timeList-list3">
+      <ion-item>
+        <span> Total ({{today | date:'dd-MM-yyyy'}})</span>
+        <span ng-if="totalCount>0" style="float:right"> {{totalCount}} task<span ng-if="totalCount>1">s</span></span>
+        <span ng-if="totalCount==0" style="float:right"> No task</span></span>
+      </ion-item>
+      <ion-item ng-repeat="timeItem in timeList" ui-sref="detailList({param:timeItem})">
+        <span> {{timeItem.label}} </span>
+        <span ng-if="timeItem.count>0" style="float:right"> {{timeItem.count}} task<span ng-if="timeItem.count>1">s</span></span>
+        <span ng-if="timeItem.count==0" style="float:right"> No task</span></span>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

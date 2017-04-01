@@ -1,0 +1,22 @@
+<ion-view title="Detail List" id="page3">
+  <ion-content padding="true" class="has-header">
+    <div class="item item-body" id="detailList-list-item-container4">
+      <div id="detailList-markdown7" class="show-list-numbers-and-dots">
+        <p style="margin-top:0px;color:#000000;">{{title}}</p>
+      </div>
+      <ion-list id="detailList-list4">
+        <ion-item class="item-divider" ng-repeat="jobItem in jobList" ui-sref="detail({param:jobItem})">
+          <div>
+            <span>{{jobItem.label}} time</span>
+            <span style="float:right">{{jobItem.time | date : 'hh : mm'}}</span>
+          </div>
+          <div>
+            <span>Location</span>
+            <span style="float:right">{{jobItem.location}}</span>
+          </div>
+        </ion-item>
+      </ion-list>
+    </div>
+    <ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="10%"></ion-infinite-scroll>
+  </ion-content>
+</ion-view>
