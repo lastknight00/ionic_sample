@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LoginForm from './LoginForm';
+import App from './App';
 
 ReactDOM.render(
-  <LoginForm />,
+  <App />,
   document.getElementById('root')
 );
